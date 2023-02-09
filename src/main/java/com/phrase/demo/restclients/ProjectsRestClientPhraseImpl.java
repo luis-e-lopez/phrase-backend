@@ -12,16 +12,16 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProjectsClientPhraseImpl implements ProjectsClient {
+public class ProjectsRestClientPhraseImpl implements ProjectsRestClient {
 
-    Logger LOG = LoggerFactory.getLogger(ProjectsClientPhraseImpl.class);
+    Logger LOG = LoggerFactory.getLogger(ProjectsRestClientPhraseImpl.class);
 
     @Value("${rest.api.phrase.base.url}")
     private String API_BASE_URL;
     private final String PROJECTS_API_ENDPOINT = "projects";
 
     @Override
-    public Projects findAll(String token) {
+    public Projects getAll(String token) {
 
         LOG.info("Calling web client GET {}{}", API_BASE_URL, PROJECTS_API_ENDPOINT);
 

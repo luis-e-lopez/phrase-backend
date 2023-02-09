@@ -1,22 +1,22 @@
 package com.phrase.demo.services;
 
 import com.phrase.demo.models.Projects;
-import com.phrase.demo.restclients.ProjectsClient;
+import com.phrase.demo.restclients.ProjectsRestClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProjectsServiceImpl implements ProjectsService {
 
-    private final ProjectsClient projectsClient;
+    private final ProjectsRestClient projectsRestClient;
 
     @Autowired
-    public ProjectsServiceImpl(ProjectsClient projectsClient) {
-        this.projectsClient = projectsClient;
+    public ProjectsServiceImpl(ProjectsRestClient projectsRestClient) {
+        this.projectsRestClient = projectsRestClient;
     }
 
     @Override
     public Projects findAll(String token) {
-        return projectsClient.findAll(token);
+        return projectsRestClient.getAll(token);
     }
 }

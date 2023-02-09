@@ -2,6 +2,6 @@ package com.phrase.demo.restclients;
 
 import com.phrase.demo.models.Projects;
 
-public interface ProjectsClient {
-    Projects findAll(String token);
+public interface ProjectsRestClient {
+    Projects getAll(String token);
 }

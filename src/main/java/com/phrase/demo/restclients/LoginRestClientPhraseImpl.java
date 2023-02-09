@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 @Component
-public class LoginClientPhraseImpl implements LoginClient {
+public class LoginRestClientPhraseImpl implements LoginRestClient {
 
-    Logger LOG = LoggerFactory.getLogger(LoginClientPhraseImpl.class);
+    Logger LOG = LoggerFactory.getLogger(LoginRestClientPhraseImpl.class);
 
     @Value("${rest.api.phrase.base.url}")
     private String API_BASE_URL;
@@ -21,7 +21,7 @@ public class LoginClientPhraseImpl implements LoginClient {
     private final String LOGIN_API_ENDPOINT = "auth/login";
 
     @Override
-    public UserAuth findByCredentials(Credentials credentials) {
+    public UserAuth getByCredentials(Credentials credentials) {
 
         LOG.info("Calling web client POST {}{}", API_BASE_URL, LOGIN_API_ENDPOINT);
 
