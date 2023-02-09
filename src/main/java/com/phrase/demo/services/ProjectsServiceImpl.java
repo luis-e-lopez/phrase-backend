@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProjectsServiceImpl implements ProjectsService {
 
-    ProjectsClient projectsClient;
+    private final ProjectsClient projectsClient;
 
     @Autowired
     public ProjectsServiceImpl(ProjectsClient projectsClient) {

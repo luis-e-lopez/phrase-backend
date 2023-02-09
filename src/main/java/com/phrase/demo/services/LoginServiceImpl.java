@@ -9,15 +9,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginServiceImpl implements LoginService {
 
-    LoginClient loginClient;
+    private final LoginClient loginClient;
+    private final CredentialsService credentialsService;
 
     @Autowired
-    public LoginServiceImpl(LoginClient loginClient) {
+    public LoginServiceImpl(LoginClient loginClient, CredentialsService credentialsService) {
         this.loginClient = loginClient;
+        this.credentialsService = credentialsService;
     }
 
     @Override
     public UserAuth authenticateUser(Credentials credentials) {
-        return loginClient.findByCredentials(credentials);
+        UserAuth userAuth = loginClient.findByCredentials(credentials);
+        if (userAuth != null)
+            credentialsService.save(credentials);
+
+        return userAuth;
     }
 }

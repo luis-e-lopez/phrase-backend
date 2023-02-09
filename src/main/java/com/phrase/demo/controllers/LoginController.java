@@ -23,7 +23,7 @@ public class LoginController {
 
     Logger LOG = LoggerFactory.getLogger(LoginController.class);
 
-    LoginService loginService;
+    private final LoginService loginService;
 
     @Autowired
     public LoginController(LoginService loginService) {

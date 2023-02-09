@@ -24,7 +24,7 @@ public class ProjectsController {
 
     Logger LOG = LoggerFactory.getLogger(ProjectsController.class);
 
-    ProjectsService projectsService;
+    private final ProjectsService projectsService;
 
     @Autowired
     public ProjectsController(ProjectsService projectsService) {
